@@ -1,7 +1,7 @@
 package com.example.myapplication.di
 
 import android.content.Context
-import com.example.myapplication.BaseApplication
+import com.example.myapplication.presentation.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,12 +17,6 @@ object AppModule {
     @Provides
     fun provideApplication(@ApplicationContext app: Context): BaseApplication {
         return app as BaseApplication
-    }
-
-    @Singleton
-    @Provides
-    fun provideRandomString(): String {
-        return "It's a random string!"
     }
 
 }
