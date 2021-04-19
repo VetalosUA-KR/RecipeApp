@@ -21,14 +21,18 @@ class RecipeListViewModel
     private @Named("auth_token") val token: String,
 ): ViewModel(){
 
-    val recipes: MutableState<List<Recipe>> = mutableStateOf(listOf())
+    val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
     init {
+        newSearch()
+    }
+
+    fun newSearch(){
         viewModelScope.launch {
             val result = repository.search(
                 token = token,
                 page = 1,
-                query = "chicken",
+                query = "chicken"
             )
             recipes.value = result
         }

@@ -20,9 +20,12 @@ object RepositoryModule {
     @Provides
     fun recipeRepository(
         recipeService: RecipeService,
-        recipeDtoMapper: RecipeDtoMapper
+        recipeMapper: RecipeDtoMapper
     ): RecipeRepository {
-        return RecipeRepository_Impl(recipeService, recipeDtoMapper)
+        return RecipeRepository_Impl(
+            recipeService = recipeService,
+            mapper = recipeMapper
+        )
     }
 
 }
